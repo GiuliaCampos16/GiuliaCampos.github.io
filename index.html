@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,148 +7,210 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #8b5cf6; /* Cor roxa moderna */
-            --bg-color: #0f172a; /* Fundo escuro */
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --card-bg: #1e293b;
+            --primary: #2c3e50; /* Cor azul-escura do professor */
+            --bg-light: #ffffff; /* Fundo branco limpo */
+            --bg-dark: #f4f4f9; /* Fundo secundário */
+            --text-main: #333;
+            --text-muted: #666;
+            --accent: #8e44ad; /* Cor roxa para detalhes, para te dar um toque pessoal */
+            --glow-color: rgba(142, 68, 173, 0.4); /* Cor do brilho suave */
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
+            background-color: var(--bg-light);
             color: var(--text-main);
             line-height: 1.6;
         }
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
+        
+        /* Cabeçalho como o do Professor */
         header {
             padding: 80px 0 50px 0;
-            text-align: center;
-            border-bottom: 1px solid #334155;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .profile-img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            border: 4px solid var(--primary);
-            margin-bottom: 20px;
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .header-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+        
+        /* Foto de Perfil como a do Professor (Rounded Rect + Glow) */
+        .profile-img-container {
+            position: relative;
+        }
+        .profile-img-styled {
+            width: 250px;
+            height: 250px;
+            border-radius: 20px; /* Borda arredondada suave */
             object-fit: cover;
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+            box-shadow: 0 0 25px var(--glow-color); /* Efeito de brilho suave */
+            border: 4px solid white; /* Borda branca interna */
         }
-        h1 { margin: 0; font-size: 2.8rem; letter-spacing: 1px; }
-        .subtitle { color: var(--text-muted); font-size: 1.2rem; margin-top: 10px; }
-        .social-links { margin-top: 25px; }
+        .profile-img-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--accent) 0%, transparent 100%);
+            opacity: 0.1; /* Camada sutil de cor */
+        }
+
+        h1 { 
+            margin: 0; 
+            font-size: 3.5rem; 
+            letter-spacing: 2px; 
+            color: var(--primary); 
+            font-weight: 700;
+        }
+        .subtitle { 
+            color: var(--accent); 
+            font-size: 1.4rem; 
+            margin-top: 5px; 
+            text-transform: uppercase; 
+            font-weight: bold; 
+            letter-spacing: 1px;
+        }
+        .description {
+            color: var(--text-muted);
+            margin-top: 25px;
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+        .social-links { 
+            margin-top: 35px; 
+            display: flex;
+            gap: 20px;
+        }
         .social-links a {
-            color: var(--text-main);
-            font-size: 1.8rem;
-            margin: 0 15px;
+            color: var(--text-muted);
+            font-size: 1.6rem;
             transition: color 0.3s, transform 0.3s;
-            display: inline-block;
         }
         .social-links a:hover { 
-            color: var(--primary); 
+            color: var(--accent); 
             transform: translateY(-5px);
         }
-        section { padding: 60px 0; }
+        
+        /* Seção de Projetos Clean */
+        section { padding: 80px 0; background-color: var(--bg-dark); }
         h2 { 
-            font-size: 2rem; 
-            margin-bottom: 40px; 
-            border-left: 5px solid var(--primary); 
-            padding-left: 15px; 
+            font-size: 2.2rem; 
+            margin-bottom: 50px; 
+            text-align: center;
+            color: var(--primary); 
         }
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
         .card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 25px;
+            background: var(--bg-light);
+            border-radius: 15px;
+            padding: 30px;
             transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid #334155;
+            border: 1px solid #eee;
             display: flex;
             flex-direction: column;
         }
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-            border-color: var(--primary);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            border-color: var(--accent);
         }
-        .card h3 { margin-top: 0; color: #c4b5fd; font-size: 1.4rem; }
-        .card p { flex-grow: 1; color: var(--text-muted); }
+        .card h3 { margin-top: 0; color: var(--primary); font-size: 1.6rem; }
+        .card p { flex-grow: 1; color: var(--text-muted); font-size: 1.05rem;}
         .tags { margin: 15px 0; }
         .tags span {
-            background: #334155;
-            color: #e2e8f0;
-            padding: 5px 12px;
+            background: rgba(142, 68, 173, 0.1);
+            color: var(--accent);
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 0.85rem;
-            margin-right: 8px;
-            margin-bottom: 8px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
             display: inline-block;
+            font-weight: bold;
         }
         .btn {
             display: block;
             text-align: center;
             margin-top: auto;
-            padding: 10px 15px;
-            background: var(--primary);
+            padding: 12px 20px;
+            background: var(--accent);
             color: white;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 8px;
             transition: background 0.3s;
             font-weight: bold;
+            font-size: 1.1rem;
         }
-        .btn:hover { background: #7c3aed; }
+        .btn:hover { background: #732d91; }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <img src="https://github.com/GiuliaCampos16.png" alt="Giulia Campos" class="profile-img">
-            <h1>Giulia Campos</h1>
-            <p class="subtitle">Engenharia Elétrica com ênfase em Sistemas e Computação | </p>
-            
-            <div class="social-links">
-                <a href="https://github.com/GiuliaCampos16" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:teu.email@exemplo.com"><i class="fas fa-envelope"></i></a>
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>Giulia Campos</h1>
+                    <p class="subtitle">Desenvolvedora em Formação | Lógica & Otimização</p>
+                    <p class="description">Olá! Sou a Giulia. Tenho um grande interesse pelo mundo da programação e desenvolvimento de software. Adoro resolver problemas lógicos e estou constantemente aprendendo novas ferramentas e tecnologias para criar soluções eficientes.</p>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com/GiuliaCampos16" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:teu.email@exemplo.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="profile-img-container">
+                    <img src="https://github.com/GiuliaCampos16.png" alt="Giulia Campos" class="profile-img-styled">
+                </div>
             </div>
         </div>
     </header>
 
     <div class="container">
-        <section id="sobre">
-            <h2>Sobre Mim</h2>
-            <p></p>
-        </section>
-
         <section id="projetos">
-            <h2>Os Meus Projetos</h2>
+            <h2>Meus Projetos</h2>
             <div class="projects-grid">
                 
                 <div class="card">
                     <h3>🧬 Caixeiro Viajante com IA</h3>
-                    <p>Implementação de um Algoritmo Genético em Python para resolver o complexo problema de otimização de rotas, garantindo a passagem única por cada cidade.</p>
+                    <p>Implementação de um Algoritmo Genético em Python para resolver o complexo problema de otimização de rotas, garantindo a passagem única por cada cidade e retornando à origem.</p>
                     <div class="tags">
                         <span>Python</span>
-                        <span>Lógica</span>
+                        <span>IA</span>
                         <span>Algoritmos Genéticos</span>
+                        <span>Otimização</span>
                     </div>
                     <a href="#" class="btn" target="_blank">Ver Código no GitHub</a>
                 </div>
 
                 <div class="card">
-                    <h3>💻 Próximo Projeto</h3>
-                    <p>Espaço reservado para o teu próximo grande projeto. Aqui podes descrever o que ele faz e quais os problemas que resolve.</p>
+                    <h3>💻 Próximo Grande Projeto</h3>
+                    <p>Espaço reservado para o seu próximo grande projeto. Aqui podes descrever o que ele faz e quais os problemas que resolve.</p>
                     <div class="tags">
                         <span>Em breve</span>
+                        <span>Desenvolvimento</span>
                     </div>
                     <a href="#" class="btn" target="_blank">Em Desenvolvimento</a>
                 </div>
