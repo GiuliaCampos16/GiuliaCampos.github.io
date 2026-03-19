@@ -1,76 +1,160 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfólio</title>
+    <title>Portfólio | Giulia Campos</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary: #8b5cf6; /* Cor roxa moderna */
+            --bg-color: #0f172a; /* Fundo escuro */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --card-bg: #1e293b;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
         }
         .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        h1, h2 { color: #2c3e50; }
-        header h1 { color: white; margin: 0; }
-        .links a {
-            margin: 0 10px;
+        header {
+            padding: 80px 0 50px 0;
+            text-align: center;
+            border-bottom: 1px solid #334155;
+        }
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            margin-bottom: 20px;
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+        }
+        h1 { margin: 0; font-size: 2.8rem; letter-spacing: 1px; }
+        .subtitle { color: var(--text-muted); font-size: 1.2rem; margin-top: 10px; }
+        .social-links { margin-top: 25px; }
+        .social-links a {
+            color: var(--text-main);
+            font-size: 1.8rem;
+            margin: 0 15px;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+        .social-links a:hover { 
+            color: var(--primary); 
+            transform: translateY(-5px);
+        }
+        section { padding: 60px 0; }
+        h2 { 
+            font-size: 2rem; 
+            margin-bottom: 40px; 
+            border-left: 5px solid var(--primary); 
+            padding-left: 15px; 
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #334155;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            border-color: var(--primary);
+        }
+        .card h3 { margin-top: 0; color: #c4b5fd; font-size: 1.4rem; }
+        .card p { flex-grow: 1; color: var(--text-muted); }
+        .tags { margin: 15px 0; }
+        .tags span {
+            background: #334155;
+            color: #e2e8f0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+        .btn {
+            display: block;
+            text-align: center;
+            margin-top: auto;
+            padding: 10px 15px;
+            background: var(--primary);
+            color: white;
             text-decoration: none;
-            color: #3498db;
+            border-radius: 6px;
+            transition: background 0.3s;
             font-weight: bold;
         }
-        .projeto {
-            border-bottom: 1px solid #eee;
-            padding-bottom: 15px;
-            margin-bottom: 15px;
-        }
+        .btn:hover { background: #7c3aed; }
     </style>
 </head>
 <body>
-
     <header>
-        <h1>Olá, eu sou [Seu Nome]! 👋</h1>
-        <p>Desenvolvedor(a) em formação | Apaixonado(a) por tecnologia</p>
+        <div class="container">
+            <img src="https://github.com/GiuliaCampos16.png" alt="Giulia Campos" class="profile-img">
+            <h1>Giulia Campos</h1>
+            <p class="subtitle">Desenvolvedora em Formação | Apaixonada por Tecnologia</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/GiuliaCampos16" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:teu.email@exemplo.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
     </header>
 
     <div class="container">
-        <h2>Sobre Mim</h2>
-        <p>Escreva um pouco sobre você aqui. Quais tecnologias você estuda, o que você gosta de fazer e o que está buscando no momento.</p>
+        <section id="sobre">
+            <h2>Sobre Mim</h2>
+            <p>Olá! Sou a Giulia. Tenho um grande interesse pelo mundo da programação e desenvolvimento de software. Adoro resolver problemas lógicos e estou constantemente a aprender novas ferramentas e tecnologias para criar soluções eficientes.</p>
+        </section>
 
-        <div class="links">
-            <a href="href="https://github.com/GiuliaCampos16"" target="_blank">Meu GitHub</a>
-            <a href="https://www.linkedin.com/in/giulia-campos-96b2a81a6/" target="_blank">Meu LinkedIn</a>
-        </div>
+        <section id="projetos">
+            <h2>Os Meus Projetos</h2>
+            <div class="projects-grid">
+                
+                <div class="card">
+                    <h3>🧬 Caixeiro Viajante com IA</h3>
+                    <p>Implementação de um Algoritmo Genético em Python para resolver o complexo problema de otimização de rotas, garantindo a passagem única por cada cidade.</p>
+                    <div class="tags">
+                        <span>Python</span>
+                        <span>Lógica</span>
+                        <span>Algoritmos Genéticos</span>
+                    </div>
+                    <a href="#" class="btn" target="_blank">Ver Código no GitHub</a>
+                </div>
 
-        <h2>Meus Projetos</h2>
-        
-        <div class="projeto">
-            <h3>🤖 Algoritmo Genético - Caixeiro Viajante</h3>
-            <p>Implementação em Python de um algoritmo genético para resolver o problema de otimização de rotas.</p>
-            <a href="#">Ver no GitHub</a>
-        </div>
+                <div class="card">
+                    <h3>💻 Próximo Projeto</h3>
+                    <p>Espaço reservado para o teu próximo grande projeto. Aqui podes descrever o que ele faz e quais os problemas que resolve.</p>
+                    <div class="tags">
+                        <span>Em breve</span>
+                    </div>
+                    <a href="#" class="btn" target="_blank">Em Desenvolvimento</a>
+                </div>
 
-        <div class="projeto">
-            <h3>💻 Projeto 2</h3>
-            <p>Descrição curta do que o projeto faz e quais tecnologias foram usadas.</p>
-            <a href="#">Ver no GitHub</a>
-        </div>
+            </div>
+        </section>
     </div>
-
 </body>
 </html>
